@@ -1,0 +1,4 @@
+{
+  "labels": ["renovate"],
+  "extends": ["config:recommended"]
+}

@@ -1,0 +1,36 @@
+{
+  "name": "@morisawa/morisawafonts-webfont",
+  "version": "1.0.0",
+  "description": "Morisawa Fonts web font API for TypeScript",
+  "author": "Morisawa Inc.",
+  "license": "Apache-2.0",
+  "repository": "github:morisawa-inc/morisawafonts-webfont-ts",
+  "main": "dist/index.mjs",
+  "types": "dist/index.d.mts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "typecheck": "tsc --noEmit",
+    "check": "biome check .",
+    "check:write": "biome check --write .",
+    "test": "vitest",
+    "ci": "tsc --noEmit && biome ci . && vitest run",
+    "release": "np"
+  },
+  "dependencies": {
+    "ky": "^1.8.2"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.1.4",
+    "@tsconfig/node24": "^24.0.3",
+    "@tsconfig/strictest": "^2.0.5",
+    "@types/node": "^24.0.0",
+    "msw": "^2.10.5",
+    "np": "^10.2.0",
+    "tsdown": "^0.16.0",
+    "typescript": "^5.9.2",
+    "vitest": "^4.0.0"
+  }
+}
