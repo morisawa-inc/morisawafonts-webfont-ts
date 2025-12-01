@@ -1,4 +1,12 @@
 {
   "labels": ["renovate"],
-  "extends": ["config:recommended"]
+  "extends": ["config:recommended"],
+  "packageRules": [
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "minimumReleaseAge": "7 days",
+      "automerge": true
+    }
+  ]
 }
