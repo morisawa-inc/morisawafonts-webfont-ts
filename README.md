@@ -1,5 +1,7 @@
 # Morisawa Fonts web font API for TypeScript
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/morisawa-inc/morisawafonts-webfont-ts)
+
 [Morisawa Fonts](https://morisawafonts.com/) の Web フォント API を TypeScript で利用するためのライブラリです。
 
 - [API ドキュメント](https://developers.morisawafonts.com/docs/api/webfont/)
