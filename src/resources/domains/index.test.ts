@@ -1,8 +1,8 @@
 import { HttpResponse, http } from "msw";
 import { setupServer } from "msw/node";
 import { afterAll, afterEach, beforeAll, describe, expect, it } from "vitest";
-import { Client } from "../client";
-import { Domains } from "./domains";
+import { Client } from "../../client";
+import { Domains } from "./index";
 
 const server = setupServer();
 

@@ -33,4 +33,8 @@ for await (const domain of client.domains.list()) {
 
 // 登録ドメインを追加する例
 await client.domains.add(["example.com", "example.net"]);
+
+// ページビューを取得する例
+const pv = await client.stats.pv.get();
+console.log(pv.pv.total);
 ```

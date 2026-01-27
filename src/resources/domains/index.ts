@@ -1,16 +1,16 @@
-import type { ClientOptions } from "../client";
-import type { Pager } from "../pager";
-import { Resource } from "../resource";
+import type { ClientOptions } from "../../client";
+import type { Pager } from "../../pager";
+import { Resource } from "../../resource";
 
 export declare namespace Domains {
-  type ListInput = Pager.Input;
-  type ListResult = Pager.Page<string> & {
+  export type ListInput = Pager.Input;
+  export type ListResult = Pager.Page<string> & {
     meta: {
       project_id: string;
     };
   };
 
-  type AddResult = {
+  export type AddResult = {
     domains: string[];
   };
 }

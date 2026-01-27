@@ -4,14 +4,14 @@ export declare namespace Pager {
   /**
    * Input parameters for pagination requests.
    */
-  type Input = {
+  export type Input = {
     limit?: number;
     cursor?: string;
   };
   /**
    * Metadata returned with paginated responses.
    */
-  type Metadata =
+  export type Metadata =
     | {
         has_next: true;
         next_cursor: string;
@@ -22,14 +22,14 @@ export declare namespace Pager {
   /**
    * Individual item with its associated metadata.
    */
-  type Item<T, M extends Metadata = Metadata> = {
+  export type Item<T, M extends Metadata = Metadata> = {
     value: T;
     meta: M;
   };
   /**
    * A page of results from the API.
    */
-  type Page<T, M extends Metadata = Metadata> = {
+  export type Page<T, M extends Metadata = Metadata> = {
     result: T[];
     meta: M;
   };
