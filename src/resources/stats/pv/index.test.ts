@@ -27,24 +27,21 @@ function createClient() {
 describe("PV", () => {
   it("get", async () => {
     server.use(
-      http.get(
-        "https://api.morisawafonts.com/webfont/v1/stats/pv",
-        ({ request }) => {
-          const url = new URL(request.url);
-          expect(url.searchParams.get("from")).toBe("2025-08");
-          expect(url.searchParams.get("to")).toBe("2025-09");
-          return HttpResponse.json<PV.GetResult>({
-            pv: {
-              total: 42,
-            },
-            meta: {
-              project_id: "project",
-              from: "2025-08",
-              to: "2025-09",
-            },
-          });
-        },
-      ),
+      http.get("https://api.morisawafonts.com/webfont/v1/stats/pv", ({ request }) => {
+        const url = new URL(request.url);
+        expect(url.searchParams.get("from")).toBe("2025-08");
+        expect(url.searchParams.get("to")).toBe("2025-09");
+        return HttpResponse.json<PV.GetResult>({
+          pv: {
+            total: 42,
+          },
+          meta: {
+            project_id: "project",
+            from: "2025-08",
+            to: "2025-09",
+          },
+        });
+      }),
     );
 
     const pv = new PV(createClient());

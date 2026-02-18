@@ -27,44 +27,41 @@ function createClient() {
 describe("Domains", () => {
   it("list", async () => {
     server.use(
-      http.get(
-        "https://api.morisawafonts.com/webfont/v1/stats/pv/domains",
-        ({ request }) => {
-          const url = new URL(request.url);
-          expect(url.searchParams.get("from")).toBe("2025-08");
-          expect(url.searchParams.get("to")).toBe("2025-09");
-          switch (url.searchParams.get("cursor")) {
-            case null:
-              return HttpResponse.json<Domains.ListResult>({
-                result: [
-                  { domain: "1.example.com", value: 100 },
-                  { domain: "2.example.com", value: 200 },
-                ],
-                meta: {
-                  has_next: true,
-                  next_cursor: "cursor1",
-                  project_id: "project",
-                  from: "2025-08",
-                  to: "2025-09",
-                },
-              });
-            case "cursor1":
-              return HttpResponse.json<Domains.ListResult>({
-                result: [
-                  { domain: "3.example.com", value: 300 },
-                  { domain: "4.example.com", value: 400 },
-                ],
-                meta: {
-                  has_next: false,
-                  project_id: "project",
-                  from: "2025-08",
-                  to: "2025-09",
-                },
-              });
-          }
-          expect.unreachable();
-        },
-      ),
+      http.get("https://api.morisawafonts.com/webfont/v1/stats/pv/domains", ({ request }) => {
+        const url = new URL(request.url);
+        expect(url.searchParams.get("from")).toBe("2025-08");
+        expect(url.searchParams.get("to")).toBe("2025-09");
+        switch (url.searchParams.get("cursor")) {
+          case null:
+            return HttpResponse.json<Domains.ListResult>({
+              result: [
+                { domain: "1.example.com", value: 100 },
+                { domain: "2.example.com", value: 200 },
+              ],
+              meta: {
+                has_next: true,
+                next_cursor: "cursor1",
+                project_id: "project",
+                from: "2025-08",
+                to: "2025-09",
+              },
+            });
+          case "cursor1":
+            return HttpResponse.json<Domains.ListResult>({
+              result: [
+                { domain: "3.example.com", value: 300 },
+                { domain: "4.example.com", value: 400 },
+              ],
+              meta: {
+                has_next: false,
+                project_id: "project",
+                from: "2025-08",
+                to: "2025-09",
+              },
+            });
+        }
+        expect.unreachable();
+      }),
     );
 
     const domains = new Domains(createClient());

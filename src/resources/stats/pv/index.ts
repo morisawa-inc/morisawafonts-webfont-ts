@@ -40,10 +40,7 @@ export class PV extends Resource {
    * console.log(result.pv.total);
    * ```
    */
-  get(
-    input?: Readonly<PV.GetInput>,
-    options?: Readonly<ClientOptions>,
-  ): Promise<PV.GetResult> {
+  get(input?: Readonly<PV.GetInput>, options?: Readonly<ClientOptions>): Promise<PV.GetResult> {
     return this.client.get(`/stats/pv`, input, options);
   }
 }

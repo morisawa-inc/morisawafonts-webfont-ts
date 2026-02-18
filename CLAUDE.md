@@ -15,7 +15,7 @@ npm run build
 # Type-check without emitting
 npm run typecheck
 
-# Lint and format check with Biome
+# Lint and format check with OXC (oxlint + oxfmt)
 npm run check
 
 # Auto-fix linting and formatting issues
@@ -52,7 +52,3 @@ Tests use Vitest with MSW (Mock Service Worker) for HTTP mocking. Test files are
 - **Request Validation**: Verify request parameters, headers, and body within MSW handlers using `expect()`
 - **Pagination Testing**: Mock cursor-based pagination by switching on `url.searchParams.get("cursor")` to return different pages
 - **AsyncIterable Testing**: Use `for await...of` loops to iterate through paginated results and verify each item
-
-## Code Style
-
-Biome handles both linting and formatting. Key rules enforce no unused imports/variables. Run `npm run check:write` to auto-fix issues.
