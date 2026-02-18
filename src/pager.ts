@@ -43,8 +43,7 @@ export class Pager<
   R = Page["result"],
   T = R extends Array<infer V> ? V : never,
   M extends Pager.Metadata = Page["meta"],
-> implements AsyncIterable<Pager.Item<T, M>>
-{
+> implements AsyncIterable<Pager.Item<T, M>> {
   readonly #client: Client;
   readonly #path: string;
   readonly #pagerInput: Pager.Input;
@@ -99,6 +98,7 @@ export class Pager<
    */
   async *[Symbol.asyncIterator](): AsyncGenerator<Pager.Item<T, M>> {
     while (this.#nextPage) {
+      // oxlint-disable-next-line no-await-in-loop
       const page = await this.getNextPage();
       for (const value of page.result) {
         yield { value, meta: page.meta };

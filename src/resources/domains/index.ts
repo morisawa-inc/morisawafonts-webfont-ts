@@ -43,10 +43,7 @@ export class Domains extends Resource {
    * await client.domains.add(['example.com', 'example.org']);
    * ```
    */
-  add(
-    domains: readonly string[],
-    options?: Readonly<ClientOptions>,
-  ): Promise<Domains.AddResult> {
+  add(domains: readonly string[], options?: Readonly<ClientOptions>): Promise<Domains.AddResult> {
     return this.client.post(`/domains`, { domains }, options);
   }
 
@@ -58,10 +55,7 @@ export class Domains extends Resource {
    * await client.domains.delete(['example.com', 'example.org']);
    * ```
    */
-  delete(
-    domains: readonly string[],
-    options?: Readonly<ClientOptions>,
-  ): Promise<void> {
+  delete(domains: readonly string[], options?: Readonly<ClientOptions>): Promise<void> {
     return this.client.delete(`/domains`, { domains }, options);
   }
 }

@@ -98,9 +98,7 @@ describe("Pager", () => {
     expect(pager.hasNextPage()).toBe(false);
 
     // Page overflow
-    await expect(pager.getNextPage()).rejects.toThrowError(
-      "No more pages available.",
-    );
+    await expect(pager.getNextPage()).rejects.toThrowError("No more pages available.");
   });
 
   it("paging: empty", async () => {
@@ -118,9 +116,7 @@ describe("Pager", () => {
     expect(pager.hasNextPage()).toBe(false);
 
     // Page overflow
-    await expect(pager.getNextPage()).rejects.toThrowError(
-      "No more pages available.",
-    );
+    await expect(pager.getNextPage()).rejects.toThrowError("No more pages available.");
   });
 
   it("for-of", async () => {

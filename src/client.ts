@@ -62,9 +62,7 @@ export class Client {
     searchParams?: Readonly<SearchParams>,
     requestOptions?: Readonly<ClientOptions>,
   ): Promise<T> {
-    return (
-      await this.#request(path, { method: "GET", searchParams }, requestOptions)
-    ).json();
+    return (await this.#request(path, { method: "GET", searchParams }, requestOptions)).json();
   }
 
   async post<T>(
@@ -72,9 +70,7 @@ export class Client {
     json?: unknown,
     requestOptions?: Readonly<ClientOptions>,
   ): Promise<T> {
-    return (
-      await this.#request(path, { method: "POST", json }, requestOptions)
-    ).json();
+    return (await this.#request(path, { method: "POST", json }, requestOptions)).json();
   }
 
   async delete(

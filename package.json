@@ -2,34 +2,35 @@
   "name": "@morisawa/morisawafonts-webfont",
   "version": "1.1.0",
   "description": "Morisawa Fonts web font API for TypeScript",
-  "author": "Morisawa Inc.",
   "license": "Apache-2.0",
+  "author": "Morisawa Inc.",
   "repository": "github:morisawa-inc/morisawafonts-webfont-ts",
-  "main": "dist/index.mjs",
-  "types": "dist/index.d.mts",
   "files": [
     "dist"
   ],
+  "main": "dist/index.mjs",
+  "types": "dist/index.d.mts",
   "scripts": {
     "build": "tsdown",
     "prepare": "npm run build",
     "typecheck": "tsc --noEmit",
-    "check": "biome check .",
-    "check:write": "biome check --write .",
+    "check": "oxlint && oxfmt --check",
+    "check:write": "oxlint --fix && oxfmt",
     "test": "vitest",
-    "ci": "tsc --noEmit && biome ci . && vitest run",
+    "ci": "npm run typecheck && npm run check && vitest run",
     "release": "np"
   },
   "dependencies": {
     "ky": "^1.8.2"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.1.4",
     "@tsconfig/node24": "^24.0.3",
     "@tsconfig/strictest": "^2.0.5",
     "@types/node": "^24.0.0",
     "msw": "^2.10.5",
     "np": "^11.0.0",
+    "oxfmt": "^0.33.0",
+    "oxlint": "^1.48.0",
     "tsdown": "^0.20.0",
     "typescript": "^5.9.2",
     "vitest": "^4.0.0"

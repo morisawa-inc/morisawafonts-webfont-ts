@@ -21,17 +21,12 @@ afterAll(() => {
 describe("Client", () => {
   it("get", async () => {
     server.use(
-      http.get(
-        "https://api.morisawafonts.com/webfont/v1/get",
-        ({ request }) => {
-          expect(new URL(request.url).searchParams.get("param")).toBe("42");
-          expect(request.headers.get("Authorization")).toBe(
-            "Bearer test-token",
-          );
+      http.get("https://api.morisawafonts.com/webfont/v1/get", ({ request }) => {
+        expect(new URL(request.url).searchParams.get("param")).toBe("42");
+        expect(request.headers.get("Authorization")).toBe("Bearer test-token");
 
-          return HttpResponse.json({ data: "some data" });
-        },
-      ),
+        return HttpResponse.json({ data: "some data" });
+      }),
     );
 
     const client = new Client({
@@ -44,17 +39,12 @@ describe("Client", () => {
 
   it("post", async () => {
     server.use(
-      http.post(
-        "https://api.morisawafonts.com/webfont/v1/post",
-        async ({ request }) => {
-          await expect(request.clone().json()).resolves.toEqual({ param: 42 });
-          expect(request.headers.get("Authorization")).toBe(
-            "Bearer test-token",
-          );
+      http.post("https://api.morisawafonts.com/webfont/v1/post", async ({ request }) => {
+        await expect(request.clone().json()).resolves.toEqual({ param: 42 });
+        expect(request.headers.get("Authorization")).toBe("Bearer test-token");
 
-          return HttpResponse.json({ data: "some data" });
-        },
-      ),
+        return HttpResponse.json({ data: "some data" });
+      }),
     );
 
     const client = new Client({
@@ -67,18 +57,13 @@ describe("Client", () => {
 
   it("delete", async () => {
     server.use(
-      http.delete(
-        "https://api.morisawafonts.com/webfont/v1/delete",
-        async ({ request }) => {
-          expect(request.headers.get("Authorization")).toBe(
-            "Bearer test-token",
-          );
+      http.delete("https://api.morisawafonts.com/webfont/v1/delete", async ({ request }) => {
+        expect(request.headers.get("Authorization")).toBe("Bearer test-token");
 
-          return new HttpResponse(undefined, {
-            status: 204,
-          });
-        },
-      ),
+        return new HttpResponse(undefined, {
+          status: 204,
+        });
+      }),
     );
 
     const client = new Client({
@@ -89,9 +74,7 @@ describe("Client", () => {
 
   it("error: no token", async () => {
     const client = new Client();
-    await expect(client.get("/get")).rejects.toThrowError(
-      "You must provide an API token.",
-    );
+    await expect(client.get("/get")).rejects.toThrowError("You must provide an API token.");
   });
 
   it("error: api", async () => {
