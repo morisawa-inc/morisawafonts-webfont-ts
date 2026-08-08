@@ -21,7 +21,7 @@
     "release": "np"
   },
   "dependencies": {
-    "ky": "^1.8.2"
+    "ky": "^2.0.0"
   },
   "devDependencies": {
     "@tsconfig/node24": "^24.0.3",
